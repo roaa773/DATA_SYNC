@@ -24,7 +24,7 @@ module tb ();
   wire [7:0] uio_oe;
 
   // Replace tt_um_example with your module name:
-  tt_um_data_sync user_project (
+  tt_um_data user_project (
       .unsync_bus  (ui_in),    // Dedicated inputs
       .sync_bus (uo_out),   // Dedicated outputs
      .bus_enable (uio_in[7]),
