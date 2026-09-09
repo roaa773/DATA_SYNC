@@ -1,3 +1,4 @@
+`default_nettype none
 module tt_um_data_sync #(parameter BUS_WIDTH = 8,
 	               parameter NUM_STAGES = 2)
 (
