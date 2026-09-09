@@ -32,7 +32,6 @@ module tb ();
       .uio_out(uio_out[6:0]),  // IOs: Output path
      .enable_pulse(uio_out[7]),  // IOs: Output path
      .uio_oe (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
-      .bus_enable    (ena),      // enable - goes high when design is selected
       .clk    (clk),      // clock
       .rst  (rst_n)     // not reset
   );
