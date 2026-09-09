@@ -9,10 +9,10 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-project
+Data synchoronizer
 ## How to test
 
-input output
+in out
 ## External hardware
 
-no hardware
+no 
