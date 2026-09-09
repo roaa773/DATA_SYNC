@@ -1,4 +1,4 @@
-module DATA_SYNC #(parameter BUS_WIDTH = 8,
+module tt_um_data_sync #(parameter BUS_WIDTH = 8,
 	               parameter NUM_STAGES = 2)
 (
 	input clk,   
