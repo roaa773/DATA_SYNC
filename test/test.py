@@ -27,7 +27,7 @@ async def test_project(dut):
 
     # Set the input values you want to test
     dut.bus_enable = 1
-    dut.unsync_bus = 8'hAB
+    dut.unsync_bus = 171
     await ClockCycles(dut.clk, 1)
     dut.bus_enable = 0
     #dut.ui_in.value = 20
@@ -38,7 +38,7 @@ async def test_project(dut):
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
-    assert dut.sync_bus.value == 8'hAB
+    assert dut.sync_bus.value == 171
     assert dut.enable_pulse.value == 1
 
     # Keep testing the module by changing the input values, waiting for
