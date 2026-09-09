@@ -1,5 +1,5 @@
 `default_nettype none
-module tt_um_data_sync #(parameter BUS_WIDTH = 8,
+module tt_um_data #(parameter BUS_WIDTH = 8,
 	               parameter NUM_STAGES = 2)
 (
 	input  wire       ena,      // always 1 when the design is powered, so you can ignore it
