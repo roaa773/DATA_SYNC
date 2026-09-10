@@ -17,9 +17,9 @@ reg enable_ff;
 wire enable_pulse_reg;
 wire [BUS_WIDTH-1:0] sync_bus_reg;
 
-wire _unused = &{ena,uio_in, 1'b0};
+wire _unused = &{ena,uio_in[6:0], 1'b0};
 	
-assign uio_out = 0;
+assign uio_out[6:0] = 0;
 assign uio_oe  = 0;	
 	
 assign enable_pulse_reg = sync_reg[NUM_STAGES-1] && !enable_ff;
@@ -49,10 +49,10 @@ end
 
 always @(posedge clk or negedge rst_n) begin 
 	if(~rst_n) begin
-		uio_out <= 0;
+		uio_out[7] <= 0;
 	end 
 	else begin
-		uio_out <= enable_pulse_reg;
+		uio_out[7] <= enable_pulse_reg;
 	end
 end
 
