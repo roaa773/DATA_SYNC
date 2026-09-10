@@ -4,7 +4,7 @@ module tt_um_data #(parameter BUS_WIDTH = 8,
 (
 	input  wire       ena,      // always 1 when the design is powered, so you can ignore it
 	input clk,   
-	input rst,
+	input rst_n,
 	input [BUS_WIDTH-1:0] unsync_bus,
 	input bus_enable,
 	input  wire [6:0] uio_in,   // IOs: Input path
@@ -28,9 +28,9 @@ assign enable_pulse_reg = sync_reg[NUM_STAGES-1] && !enable_ff;
 assign sync_bus_reg = enable_pulse_reg ? unsync_bus: sync_bus;
 
 
-always @(posedge clk or negedge rst)
+always @(posedge clk or negedge rst_n)
  begin
-  if(!rst)      
+  if(!rst_n)      
    begin
     sync_reg <= 'b0 ;
    end
@@ -40,8 +40,8 @@ always @(posedge clk or negedge rst)
    end  
  end
 
-always @(posedge clk or negedge rst) begin 
-	if(~rst) begin
+always @(posedge clk or negedge rst_n) begin 
+	if(~rst_n) begin
 		enable_ff <= 0;
 	end 
 	else begin
@@ -49,8 +49,8 @@ always @(posedge clk or negedge rst) begin
 	end
 end
 
-always @(posedge clk or negedge rst) begin 
-	if(~rst) begin
+always @(posedge clk or negedge rst_n) begin 
+	if(~rst_n) begin
 		enable_pulse <= 0;
 	end 
 	else begin
@@ -58,8 +58,8 @@ always @(posedge clk or negedge rst) begin
 	end
 end
 
-always @(posedge clk or negedge rst) begin 
-	if(~rst) begin
+always @(posedge clk or negedge rst_n) begin 
+	if(~rst_n) begin
 		sync_bus <= 0;
 	end 
 	else begin
