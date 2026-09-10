@@ -25,6 +25,7 @@ module tb ();
 
   // Replace tt_um_example with your module name:
   tt_um_data user_project (
+     .ena (ena),
       .unsync_bus  (ui_in),    // Dedicated inputs
       .sync_bus (uo_out),   // Dedicated outputs
      .bus_enable (uio_in[7]),
