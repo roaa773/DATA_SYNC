@@ -20,7 +20,7 @@ async def test_project(dut):
     #dut.ui_in.value = 0
     #dut.uio_in.value = 0
     dut.rst_n.value = 0
-    await FallingEdge(dut.clk, 1)
+    await FallingEdge(dut.clk)
     dut.rst_n.value = 1
 
     dut._log.info("Test project behavior")
@@ -28,13 +28,15 @@ async def test_project(dut):
     # Set the input values you want to test
     dut.uio_in.value = 0b10000000
     dut.ui_in.value = 171
-    await FallingEdge(dut.clk, 1)
+    await FallingEdge(dut.clk)
     dut.uio_in.value = 0
     #dut.ui_in.value = 20
     #dut.uio_in.value = 30
 
     # Wait for one clock cycle to see the output values
     await FallingEdge(dut.clk, 2)
+    for _ in range(2):
+        await FallingEdge(dut.clk)
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
