@@ -34,7 +34,7 @@ module tb ();
      .enable_pulse(uio_out[7]),  // IOs: Output path
      .uio_oe (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
       .clk    (clk),      // clock
-      .rst  (rst_n)     // not reset
+      .rst_n  (rst_n)     // not reset
   );
 
 endmodule
