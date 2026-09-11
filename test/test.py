@@ -34,7 +34,6 @@ async def test_project(dut):
     #dut.uio_in.value = 30
 
     # Wait for one clock cycle to see the output values
-    await FallingEdge(dut.clk, 2)
     for _ in range(2):
         await FallingEdge(dut.clk)
 
